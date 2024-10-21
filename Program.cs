@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using TakeNote.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<TakeNoteDbContext>(options =>
+      options.UseInMemoryDatabase("TakeNoteDb")
+    );
 
 var app = builder.Build();
 

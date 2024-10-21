@@ -5,11 +5,11 @@ namespace TakeNote.Data
 {
     public class TakeNoteDbContext : DbContext
     {
+        public DbSet<Note> Note { get; set; }
+
         public TakeNoteDbContext (DbContextOptions<TakeNoteDbContext> options)
             : base(options)
         {
         }
-
-        public DbSet<Note> Note { get; set; }
     }
 }
