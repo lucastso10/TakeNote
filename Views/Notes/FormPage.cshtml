@@ -6,14 +6,20 @@
 
 <h1>Create/Edit a Note</h1>
 
-<form asp-action="NoteForm" asp-controller="Notes">
+<form asp-controller="Notes" asp-action="NoteForm" method="post">
   <fieldset>
-    <label>Id</label>
-    <input type="number" name="Id" placeholder="0" aria-label="Id" asp-for="Id">
-    <label>Title</label>
-    <input type="text" name="text" placeholder="Title" aria-label="Text" asp-for="Title">
-    <label>Description</label>
-    <input type="text" name="text" placeholder="Description" aria-label="Text" asp-for="Description">
+    <label>
+      Id
+      <input type="number" placeholder="0" asp-for="Id">
+    </label>
+    <label>
+      Title
+      <input type="text" placeholder="Title" asp-for="Title">
+    </label>
+    <label>
+      Description
+      <input type="text" placeholder="Description" asp-for="Description">
+    </label>
     <!--<textarea
       name="Description"
       placeholder="Write a description for your note..."
@@ -23,8 +29,5 @@
     </textarea> --!>
   </fieldset>
 
-  <input
-    type="submit"
-    value="Create/Edit"
-  />
+  <button type="submit">Create/Edit</button>
 </form>
