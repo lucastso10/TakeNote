@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Notes";
+}
+
+@model TakeNote.Models.Note
+
+<h1>Create a Note</h1>
+
+<form asp-controller="Notes" asp-action="CreateForm" method="post">
+  <fieldset>
+    <label>
+      Title
+      <input type="text" placeholder="Title" asp-for="Title">
+    </label>
+    <label>
+      Description
+      <!--<input type="text" placeholder="Description" asp-for="Description"> --!>
+    <textarea
+      placeholder="Write a description for your note..."
+      asp-for="Description"
+      >
+    </textarea>
+    </label>
+  </fieldset>
+
+  <button type="submit">Create/Edit</button>
+</form>

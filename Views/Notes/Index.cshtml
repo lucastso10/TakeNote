@@ -2,7 +2,33 @@
     ViewData["Title"] = "Notes";
 }
 
+@model List<Note>
+
 <div class="text-center">
     <h1 class="display-4">Notes</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<br/>
+
+<div class="grid">
+  @{
+    foreach (var note in Model)
+    {
+      <div>
+	<article>
+	  <header>
+	    <strong>@note.Title</strong>
+	  </header>
+	  <p>
+	    @note.Description
+	  </p>
+	</article>
+      </div>
+    }
+    for (int i = 0; i < Model.Count - 5; i++)
+    {
+      <div>
+      </div>
+    }
+  }
 </div>

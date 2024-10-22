@@ -14,16 +14,19 @@ public class NotesController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        return View(_context.Note.ToList());
     }
 
-    public IActionResult FormPage()
+    public IActionResult Create()
     {
 	return View();
     }
 
-    public IActionResult NoteForm(Note model)
+    public IActionResult CreateForm(Note model)
     {
+	Random rnd = new Random();
+	model.Id = rnd.Next(0,9999);
+
 	_context.Add(model);
 
 	_context.SaveChanges();
