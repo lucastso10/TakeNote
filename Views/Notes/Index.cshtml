@@ -4,11 +4,19 @@
 
 @model List<Note>
 
-<div class="text-center">
+<div class="grid">
+  <div>
     <h1 class="display-4">Notes</h1>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>
+    <a asp-controller="Notes" asp-action="Create"><button>Create New+</button></a>
+  </div>
 </div>
 
-<br/>
+<hr/>
 
 <div class="grid">
   @{
@@ -22,10 +30,20 @@
 	  <p>
 	    @note.Description
 	  </p>
+	  <footer class="grid">
+	      <div></div>
+	      <div></div>
+	      <div></div>
+	      <div></div>
+	      <div></div>
+	      <div></div>
+	      <a asp-controller="Home" asp-action="Index"><i class="material-symbols-outlined">edit</i></a>
+	      <a asp-controller="Home" asp-action="Index"><i class="material-symbols-outlined" style="color:#861D13">delete</i></a>
+	  </footer>
 	</article>
       </div>
     }
-    for (int i = 0; i < Model.Count - 5; i++)
+    for (var i = 0; i <= (2 - Model.Count); i++)
     {
       <div>
       </div>
