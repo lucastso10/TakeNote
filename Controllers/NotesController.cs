@@ -33,4 +33,41 @@ public class NotesController : Controller
 
 	return RedirectToAction("Index");
     }
+
+    public IActionResult Delete(int? Id)
+    {
+	Note? note = _context.Note.Find(Id);
+
+	if (note == null)
+	{
+	    return BadRequest();
+	}
+
+	_context.Note.Remove(note);
+
+	_context.SaveChanges();
+
+	return RedirectToAction("Index");
+    }
+
+    public IActionResult Edit(int Id)
+    {
+	Note? note = _context.Note.Find(Id);
+
+	if (note == null)
+	{
+	    return BadRequest();
+	}
+
+	return View(note);
+    }
+
+    public IActionResult EditForm(Note model)
+    {
+	_context.Update(model);
+
+	_context.SaveChanges();
+
+	return RedirectToAction("Index");
+    }
 }
